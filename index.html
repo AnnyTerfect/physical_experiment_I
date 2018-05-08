@@ -1,0 +1,2111 @@
+<!doctype html>
+<html lang="cn">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+    <title>物理实验</title>
+    <link rel="stylesheet" href="css/idangerous.swiper.css">
+    <link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+<div id="all">
+    <div class="space">
+    </div>
+    <div id="banner_cont">
+        <div id="banner_left">
+            <div class="banner-menu" id="banner_menu1">
+            </div>
+            <div class="banner-menu">
+            </div>
+            <div class="banner-menu">
+            </div>
+        </div>
+
+    </div>
+    <div id="menu_cont">
+        <div id="menu_tit">
+            目录
+        </div>
+        <ul id="menu_ul">
+<!--            <li id="menu_li1">分光计</li>  -->
+            <li id="menu_li2">直流电桥</li>
+            <li id="menu_li3">多功能摆</li>
+            <li id="menu_li4">伏安特性</li>
+            <li id="menu_li5">霍尔效应</li>
+            <li id="menu_li6">密立根油滴</li>
+            <li id="menu_li7">声速测量</li>
+            <li id="menu_li8">关于我们</li>
+            <li style="color:#AAA">访问量
+            <?php
+session_start();
+$filepath = 'count.txt';
+if ($_SESSION['temp'] == '')
+{
+    if (!file_exists($filepath))
+    {
+        $fp = fopen($filepath,'w');
+        fwrite($fp,0);
+        fclose($fp);
+        counter($filepath);
+    }else
+    {
+        counter($filepath);
+    }
+    $_SESSION['temp'] = 1;
+}
+echo file_get_contents($filepath);
+function counter($f_value)
+{
+    $fp = fopen($f_value,'r') or die('打开文件时出错。');
+    $countNum = fgets($fp,1024);
+    fclose($fp);
+    $countNum++;
+    $fpw = fopen($f_value,'w');
+    fwrite($fpw,$countNum);
+    fclose($fpw);
+}
+
+?>14356
+            </li>
+        </ul>
+    </div>
+    <div id="mask">
+    </div>
+<!--    <div class="exp-content" id="exp1">
+        <div class="exp-tit">
+            分光计(deg)
+        </div>
+        <div class="exp-in-cont">
+            <div class="exp-row exp-row3" id="exp_fgj_row1">
+	            <div class="exp-cell exp-cell1 bg1">内容</div>
+				<div class="exp-cell exp-cell1 bg1">1</div>
+                <div class="exp-cell exp-cell1 bg1">2</div>
+                <div class="exp-cell exp-cell1 bg1">3</div>
+                <div class="exp-cell exp-cell1 bg1">4</div>
+                <div class="exp-cell exp-cell1 bg1">5</div>
+            </div>
+            <div class="exp1-swiper1-div" id="exp1_swiper1_div">
+                <div class="exp1-swiper1-container swiper-container" >
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <div class="exp-cell exp-cell1 bg1">
+		            		   φ<span class="half">左</span>
+							</div>
+                            <div class="exp-cell exp-cell1 exp-cell-input du" style="width:33%;float:left" id="e1a11"></div>
+                            <div class="exp-cell exp-cell1 exp-cell-input fen" style="width:33%;float:left" id="e1a12"></div>
+                            <div style="clear:left"></div>
+                            <div class="exp-cell exp-cell1 exp-cell-input du" style="width:33%;float:left" id="e1a21"></div>
+                            <div class="exp-cell exp-cell1 exp-cell-input fen" style="width:33%;float:left" id="e1a22"></div>
+                            <div style="clear:left"></div>
+                            <div class="exp-cell exp-cell1 exp-cell-input du" style="width:33%;float:left" id="e1a31"></div>
+                            <div class="exp-cell exp-cell1 exp-cell-input fen" style="width:33%;float:left" id="e1a32"></div>
+                            <div style="clear:left"></div>
+                            <div class="exp-cell exp-cell1 exp-cell-input du" style="width:33%;float:left" id="e1a41"></div>
+                            <div class="exp-cell exp-cell1 exp-cell-input fen" style="width:33%;float:left" id="e1a42"></div>
+                            <div style="clear:left"></div>
+                            <div class="exp-cell exp-cell1 exp-cell-input du" style="width:33%;float:left" id="e1a51"></div>
+                            <div class="exp-cell exp-cell1 exp-cell-input fen" style="width:33%;float:left" id="e1a52"></div>
+                            <div style="clear:left"></div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="exp-cell exp-cell1 bg1">
+					    	   φ<span class="half">右</span>
+						    </div>
+                            <div class="exp-cell exp-cell1 exp-cell-input du" style="width:33%;float:left" id="e1b11"></div>
+                            <div class="exp-cell exp-cell1 exp-cell-input fen" style="width:33%;float:left" id="e1b12"></div>
+                            <div style="clear:left"></div>
+                            <div class="exp-cell exp-cell1 exp-cell-input du" style="width:33%;float:left" id="e1b21"></div>
+                            <div class="exp-cell exp-cell1 exp-cell-input fen" style="width:33%;float:left" id="e1b22"></div>
+                            <div style="clear:left"></div>
+                            <div class="exp-cell exp-cell1 exp-cell-input du" style="width:33%;float:left" id="e1b31"></div>
+                            <div class="exp-cell exp-cell1 exp-cell-input fen" style="width:33%;float:left" id="e1b32"></div>
+                            <div style="clear:left"></div>
+                            <div class="exp-cell exp-cell1 exp-cell-input du" style="width:33%;float:left" id="e1b41"></div>
+                            <div class="exp-cell exp-cell1 exp-cell-input fen" style="width:33%;float:left" id="e1b42"></div>
+                            <div style="clear:left"></div>
+                            <div class="exp-cell exp-cell1 exp-cell-input du" style="width:33%;float:left" id="e1b51"></div>
+                            <div class="exp-cell exp-cell1 exp-cell-input fen" style="width:33%;float:left" id="e1b52"></div>
+                            <div style="clear:left"></div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="exp-cell exp-cell1 bg1">
+                                φ<span class="half">左</span><span class="litle">0</span>
+                            </div>
+                            <div class="exp-cell exp-cell1 exp-cell-input du" style="width:33%;float:left" id="e1c11"></div>
+                            <div class="exp-cell exp-cell1 exp-cell-input fen" style="width:33%;float:left" id="e1c12"></div>
+                            <div style="clear:left"></div>
+                            <div class="exp-cell exp-cell1 exp-cell-input du" style="width:33%;float:left" id="e1c21"></div>
+                            <div class="exp-cell exp-cell1 exp-cell-input fen" style="width:33%;float:left" id="e1c22"></div>
+                            <div style="clear:left"></div>
+                            <div class="exp-cell exp-cell1 exp-cell-input du" style="width:33%;float:left" id="e1c31"></div>
+                            <div class="exp-cell exp-cell1 exp-cell-input fen" style="width:33%;float:left" id="e1c32"></div>
+                            <div style="clear:left"></div>
+                            <div class="exp-cell exp-cell1 exp-cell-input du" style="width:33%;float:left" id="e1c41"></div>
+                            <div class="exp-cell exp-cell1 exp-cell-input fen" style="width:33%;float:left" id="e1c42"></div>
+                            <div style="clear:left"></div>
+                            <div class="exp-cell exp-cell1 exp-cell-input du" style="width:33%;float:left" id="e1c51"></div>
+                            <div class="exp-cell exp-cell1 exp-cell-input fen" style="width:33%;float:left" id="e1c52"></div>
+                            <div style="clear:left"></div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="exp-cell exp-cell1 bg1">
+		    	    		    φ<span class="half">右</span><span class="litle">0</span>
+                            </div>
+                            <div class="exp-cell exp-cell1 exp-cell-input du" style="width:33%;float:left" id="e1d11"></div>
+                            <div class="exp-cell exp-cell1 exp-cell-input fen" style="width:33%;float:left" id="e1d12"></div>
+                            <div style="clear:left"></div>
+                            <div class="exp-cell exp-cell1 exp-cell-input du" style="width:33%;float:left" id="e1d21"></div>
+                            <div class="exp-cell exp-cell1 exp-cell-input fen" style="width:33%;float:left" id="e1d22"></div>
+                            <div style="clear:left"></div>
+                            <div class="exp-cell exp-cell1 exp-cell-input du" style="width:33%;float:left" id="e1d31"></div>
+                            <div class="exp-cell exp-cell1 exp-cell-input fen" style="width:33%;float:left" id="e1d32"></div>
+                            <div style="clear:left"></div>
+                            <div class="exp-cell exp-cell1 exp-cell-input du" style="width:33%;float:left" id="e1d41"></div>
+                            <div class="exp-cell exp-cell1 exp-cell-input fen" style="width:33%;float:left" id="e1d42"></div>
+                            <div style="clear:left"></div>
+                            <div class="exp-cell exp-cell1 exp-cell-input du" style="width:33%;float:left" id="e1d51"></div>
+                            <div class="exp-cell exp-cell1 exp-cell-input fen" style="width:33%;float:left" id="e1d52"></div>
+                            <div style="clear:left"></div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="exp-cell exp-cell1 bg1">
+							    δ<span class="half">min</span>
+                            </div>
+                            <div class="exp-cell exp-cell1 bg2 du" style="width:40%;float:left;margin-left:2px;margin:1px;" id="e1e11"></div>
+                            <div class="exp-cell exp-cell1 bg2 fen" style="width:40%;float:left;margin-left:2px;margin:1px;" id="e1e12"></div>
+                            <div style="clear:left"></div>
+                            <div class="exp-cell exp-cell1 bg2 du" style="width:40%;float:left;margin-left:2px;margin:1px;" id="e1e21"></div>
+                            <div class="exp-cell exp-cell1 bg2 fen" style="width:40%;float:left;margin-left:2px;margin:1px;" id="e1e22"></div>
+                            <div style="clear:left"></div>
+                            <div class="exp-cell exp-cell1 bg2 du"  style="width:40%;float:left;margin-left:2px;margin:1px;" id="e1e31"></div>
+                            <div class="exp-cell exp-cell1 bg2 fen"  style="width:40%;float:left;margin-left:2px;margin:1px;" id="e1e32"></div>
+                            <div style="clear:left"></div>
+                            <div class="exp-cell exp-cell1 bg2 du"  style="width:40%;float:left;margin-left:2px;margin:1px;" id="e1e41"></div>
+                            <div class="exp-cell exp-cell1 bg2 fen"  style="width:40%;float:left;margin-left:2px;margin:1px;" id="e1e42"></div>
+                            <div style="clear:left"></div>
+                            <div class="exp-cell exp-cell1 bg2 du" style="width:40%;float:left;margin-left:2px;margin:1px;" id="e1e51"></div>
+                            <div class="exp-cell exp-cell1 bg2 fen"  style="width:40%;float:left;margin-left:2px;margin:1px;" id="e1e52"></div>
+                            <div style="clear:left"></div>
+                        </div>
+                    </div>
+                </div>
+			    <div class="clear">
+		        </div>
+            </div>
+			<div class="clear">
+		    </div>
+        </div>
+        <div class="exp-in-cont">
+            <div class="exp-cell exp-cell1 bg1" style="width:20%;float:left;">
+                A
+            </div>
+            <div class="exp-cell exp-cell1 bg1 exp-cell-input" style="width:20%;float:left;" id="e1f">
+                60
+            </div>
+            <div class="clear">
+            </div>
+        </div>
+        <div class="exp-in-cont" style="margin-top:10px">
+            <div class="exp-result-cont">
+                <div class="exp-result-tit bg1">
+                    计算结果
+                </div>
+                <div class="exp-result-line">
+                    <div class="exp-result-cell exp-result-cell3 bg1">δ<span class="half">min平均</span></div>
+                    <div class="exp-result-cell exp-result-cell3 bg1">u(<span class="half">δmin</span>)A</div>
+                    <div class="exp-result-cell exp-result-cell3 bg1">δ(<span class="half">min</span>)B</div>
+                </div>
+                <div class="exp-result-line">
+                    <div class="exp-result-cell exp-result-cell3 bg2" id="e1ans1"></div>
+                    <div class="exp-result-cell exp-result-cell3 bg2" id="e1ans2"></div>
+                    <div class="exp-result-cell exp-result-cell3 bg2" id="e1ans3"></div>
+                </div>
+                <div class="exp-result-line">
+                    <div class="exp-result-cell exp-result-cell3 bg1">u(<span class="half">δmin</span>)</div>
+                    <div class="exp-result-cell exp-result-cell3 bg1">U<span class="half">r</span></div>
+                    <div class="exp-result-cell exp-result-cell3 bg1">U<span class="half">n</span></div>
+                </div>
+                <div class="exp-result-line">
+                    <div class="exp-result-cell exp-result-cell3 bg2" id="e1ans4"></div>
+                    <div class="exp-result-cell exp-result-cell3 bg2" id="e1ans5"></div>
+                    <div class="exp-result-cell exp-result-cell3 bg2" id="e1ans6"></div>
+                </div>
+            </div>
+        </div>
+        <div class="exp-in-cont" style="margin-top:10px">
+            <div class="exp-button-cont">
+                <button class="exp-run-button bg1" id="e1btn">
+                    运行
+                </button>
+            </div>
+        </div>
+    </div>  -->
+    <!--分光计-->
+    <div class="exp-content" id="exp2">
+        <div class="exp-tit">
+           直流电桥
+        </div>
+        <div class="exp-in-cont">
+            <div class="exp-row exp-row3" id="exp_zldq_row1">
+                <div class="exp-cell exp-cell1 bg1">电阻</div>
+                <div class="exp-cell exp-cell1 bg1">电压</div>
+                <div class="exp-cell exp-cell2 bg1">预置</div>
+                <div class="exp-cell exp-cell1 bg1">次数</div>
+                <div class="exp-cell exp-cell1 bg1">1</div>
+                <div class="exp-cell exp-cell1 bg1">2</div>
+                <div class="exp-cell exp-cell1 bg1">3</div>
+                <div class="exp-cell exp-cell1 bg1">4</div>
+                <div class="exp-cell exp-cell1 bg1">5</div>
+                <div class="exp-cell exp-cell1 bg1">6</div>
+                <div class="exp-cell exp-cell1 bg1">7</div>
+                <div class="exp-cell exp-cell1 bg1">8</div>
+                <div class="exp-cell exp-cell1 bg1">9</div>
+                <div class="exp-cell exp-cell1 bg1">10</div>
+              </div>
+            <div class="exp2-swiper1-div" id="exp2_swiper1_div">
+                <div class="exp2-swiper1-container swiper-container" >
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <div class="exp-cell exp-cell1 bg1">
+                                铜电阻(惠斯登电桥)
+                            </div>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="aus"></input>
+                            <div class="exp-row exp-row4">
+                                <div class="exp-cell exp-cell1 bg1">R<span class="half">1</span>/Ω</div>
+                                <input class="exp-cell exp-cell1 exp-cell-input"  id="ar1"></input>
+                                <div class="exp-cell exp-cell1 bg1">t/℃</div>
+                                <input class="exp-cell exp-cell1 exp-cell-input" id="at1"></input>
+                                <input class="exp-cell exp-cell1 exp-cell-input" id="at2"></input>
+                                <input class="exp-cell exp-cell1 exp-cell-input" id="at3"></input>
+                                <input class="exp-cell exp-cell1 exp-cell-input" id="at4"></input>
+                                <input class="exp-cell exp-cell1 exp-cell-input" id="at5"></input>
+                                <input class="exp-cell exp-cell1 exp-cell-input" id="at6"></input>
+                                <input class="exp-cell exp-cell1 exp-cell-input" id="at7"></input>
+                                <input class="exp-cell exp-cell1 exp-cell-input" id="at8"></input>
+                                <input class="exp-cell exp-cell1 exp-cell-input" id="at9"></input>
+                                <input class="exp-cell exp-cell1 exp-cell-input" id="at10"></input>
+                            </div>
+                            <div class="exp-row exp-row4">
+                                <div class="exp-cell exp-cell1 bg1">R<span class="half">2</span>/Ω</div>
+                                <input class="exp-cell exp-cell1 exp-cell-input" id="ar2"></input>
+                                <div class="exp-cell exp-cell1 bg1">R<span class="half">3</span>/Ω</div>
+                                <input class="exp-cell exp-cell1 exp-cell-input" id="ar31"></input>
+                                <input class="exp-cell exp-cell1 exp-cell-input" id="ar32"></input>
+                                <input class="exp-cell exp-cell1 exp-cell-input" id="ar33"></input>
+                                <input class="exp-cell exp-cell1 exp-cell-input" id="ar34"></input>
+                                <input class="exp-cell exp-cell1 exp-cell-input" id="ar35"></input>
+                                <input class="exp-cell exp-cell1 exp-cell-input" id="ar36"></input>
+                                <input class="exp-cell exp-cell1 exp-cell-input" id="ar37"></input>
+                                <input class="exp-cell exp-cell1 exp-cell-input" id="ar38"></input>
+                                <input class="exp-cell exp-cell1 exp-cell-input" id="ar39"></input>
+                                <input class="exp-cell exp-cell1 exp-cell-input" id="ar310"></input>
+                            </div>
+                            <div class="exp-row exp-row4">
+                                <div class="exp-cell exp-cell1 bg1">R<span class="half">3</span>/Ω</div>
+                                <div class="exp-cell exp-cell1 bg1" id="ar3"></div>
+                                <div class="exp-cell exp-cell1 bg1">R<span class="half">x</span>/Ω</div>
+                                <div class="exp-cell exp-cell1 bg2" id="arx1"></div>
+                                <div class="exp-cell exp-cell1 bg2" id="arx2"></div>
+                                <div class="exp-cell exp-cell1 bg2" id="arx3"></div>
+                                <div class="exp-cell exp-cell1 bg2" id="arx4"></div>
+                                <div class="exp-cell exp-cell1 bg2" id="arx5"></div>
+                                <div class="exp-cell exp-cell1 bg2" id="arx6"></div>
+                                <div class="exp-cell exp-cell1 bg2" id="arx7"></div>
+                                <div class="exp-cell exp-cell1 bg2" id="arx8"></div>
+                                <div class="exp-cell exp-cell1 bg2" id="arx9"></div>
+                                <div class="exp-cell exp-cell1 bg2" id="arx10"></div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="exp-cell exp-cell1 bg1">
+                                铜电阻(卧式电桥)
+                            </div>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="bus"></input>
+                            <div class="exp-row exp-row4">
+                                <div class="exp-cell exp-cell1 bg1">R<span class="half">2</span>/Ω</div>
+                                <div class="exp-cell exp-cell1 bg1">50/Ω</div>
+                                <div class="exp-cell exp-cell1 bg1">t/℃</div>
+                                <input class="exp-cell exp-cell1 exp-cell-input" id="bt1"></input>
+                                <input class="exp-cell exp-cell1 exp-cell-input" id="bt2"></input>
+                                <input class="exp-cell exp-cell1 exp-cell-input" id="bt3"></input>
+                                <input class="exp-cell exp-cell1 exp-cell-input" id="bt4"></input>
+                                <input class="exp-cell exp-cell1 exp-cell-input" id="bt5"></input>
+                                <input class="exp-cell exp-cell1 exp-cell-input" id="bt6"></input>
+                                <input class="exp-cell exp-cell1 exp-cell-input" id="bt7"></input>
+                                <input class="exp-cell exp-cell1 exp-cell-input" id="bt8"></input>
+                                <input class="exp-cell exp-cell1 exp-cell-input" id="bt9"></input>
+                                <input class="exp-cell exp-cell1 exp-cell-input" id="bt10"></input>
+                            </div>
+                            <div class="exp-row exp-row4">
+                                <div class="exp-cell exp-cell1 bg1">R<span class="half">3</span>/Ω</div>
+                                <div class="exp-cell exp-cell1 bg1">50/Ω</div>
+                                <div class="exp-cell exp-cell1 bg1">U<span class="half">0</span>/mv</div>
+                                <div class="exp-cell exp-cell1 bg1" id="bu01">0.00</div>
+                                <input class="exp-cell exp-cell1 exp-cell-input" id="bu02"></input>
+                                <input class="exp-cell exp-cell1 exp-cell-input" id="bu03"></input>
+                                <input class="exp-cell exp-cell1 exp-cell-input" id="bu04"></input>
+                                <input class="exp-cell exp-cell1 exp-cell-input" id="bu05"></input>
+                                <input class="exp-cell exp-cell1 exp-cell-input" id="bu06"></input>
+                                <input class="exp-cell exp-cell1 exp-cell-input" id="bu07"></input>
+                                <input class="exp-cell exp-cell1 exp-cell-input" id="bu08"></input>
+                                <input class="exp-cell exp-cell1 exp-cell-input" id="bu09"></input>
+                                <input class="exp-cell exp-cell1 exp-cell-input" id="bu010"></input>
+                            </div>
+                            <div class="exp-row exp-row4">
+                                <div class="exp-cell exp-cell1 empty"></div>
+                                <div class="exp-cell exp-cell1 empty"></div>
+                                <div class="exp-cell exp-cell1 bg1">R<span class="half">x</span>/Ω</div>
+                                <input class="exp-cell exp-cell1 exp-cell-input" id="brx1"></input>
+                                <div class="exp-cell exp-cell1 bg2" id="brx2"></div>
+                                <div class="exp-cell exp-cell1 bg2" id="brx3"></div>
+                                <div class="exp-cell exp-cell1 bg2" id="brx4"></div>
+                                <div class="exp-cell exp-cell1 bg2" id="brx5"></div>
+                                <div class="exp-cell exp-cell1 bg2" id="brx6"></div>
+                                <div class="exp-cell exp-cell1 bg2" id="brx7"></div>
+                                <div class="exp-cell exp-cell1 bg2" id="brx8"></div>
+                                <div class="exp-cell exp-cell1 bg2" id="brx9"></div>
+                                <div class="exp-cell exp-cell1 bg2" id="brx10"></div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="exp-cell exp-cell1 bg1">
+                                    热敏电阻(立式电桥)
+                            </div>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="cus"></input>
+                            <div class="exp-row exp-row4">
+                                <div class="exp-cell exp-cell1 bg1">R<span class="half">1</span>/Ω</div>
+                                    <div class="exp-cell exp-cell1 bg1">100/Ω</div>
+                                    <div class="exp-cell exp-cell1 bg1">t/℃</div>
+                                    <input class="exp-cell exp-cell1 exp-cell-input" id="ct1"></input>
+                                    <input class="exp-cell exp-cell1 exp-cell-input" id="ct2"></input>
+                                    <input class="exp-cell exp-cell1 exp-cell-input" id="ct3"></input>
+                                    <input class="exp-cell exp-cell1 exp-cell-input" id="ct4"></input>
+                                    <input class="exp-cell exp-cell1 exp-cell-input" id="ct5"></input>
+                                    <input class="exp-cell exp-cell1 exp-cell-input" id="ct6"></input>
+                                    <input class="exp-cell exp-cell1 exp-cell-input" id="ct7"></input>
+                                    <input class="exp-cell exp-cell1 exp-cell-input" id="ct8"></input>
+                                    <input class="exp-cell exp-cell1 exp-cell-input" id="ct9"></input>
+                                    <input class="exp-cell exp-cell1 exp-cell-input" id="ct10"></input>
+                                </div>
+                                <div class="exp-row exp-row4">
+                                    <div class="exp-cell exp-cell1 bg1">R<span class="half">2</span>/Ω</div>
+                                    <div class="exp-cell exp-cell1 bg1">100/Ω</div>
+                                    <div class="exp-cell exp-cell1 bg1">U<span class="half">0</span>/mv</div>
+                                    <div class="exp-cell exp-cell1 bg1" id="cu01">0.00</div>
+                                    <input class="exp-cell exp-cell1 exp-cell-input" id="cu02"></input>
+                                    <input class="exp-cell exp-cell1 exp-cell-input" id="cu03"></input>
+                                    <input class="exp-cell exp-cell1 exp-cell-input" id="cu04"></input>
+                                    <input class="exp-cell exp-cell1 exp-cell-input" id="cu05"></input>
+                                    <input class="exp-cell exp-cell1 exp-cell-input" id="cu06"></input>
+                                    <input class="exp-cell exp-cell1 exp-cell-input" id="cu07"></input>
+                                    <input class="exp-cell exp-cell1 exp-cell-input" id="cu08"></input>
+                                    <input class="exp-cell exp-cell1 exp-cell-input" id="cu09"></input>
+                                    <input class="exp-cell exp-cell1 exp-cell-input" id="cu010"></input>
+                                </div>
+                                <div class="exp-row exp-row4">
+                                    <div class="exp-cell exp-cell1 empty"></div>
+                                    <div class="exp-cell exp-cell1 empty"></div>
+                                    <div class="exp-cell exp-cell1 bg1">R<span class="half">x</span>/Ω</div>
+                                    <input class="exp-cell exp-cell1 exp-cell-input" id="crx1"></input>
+                                    <div class="exp-cell exp-cell1 bg2" id="crx2"></div>
+                                    <div class="exp-cell exp-cell1 bg2" id="crx3"></div>
+                                    <div class="exp-cell exp-cell1 bg2" id="crx4"></div>
+                                    <div class="exp-cell exp-cell1 bg2" id="crx5"></div>
+                                    <div class="exp-cell exp-cell1 bg2" id="crx6"></div>
+                                    <div class="exp-cell exp-cell1 bg2" id="crx7"></div>
+                                    <div class="exp-cell exp-cell1 bg2" id="crx8"></div>
+                                    <div class="exp-cell exp-cell1 bg2" id="crx9"></div>
+                                    <div class="exp-cell exp-cell1 bg2" id="crx10"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="clear">
+                </div>
+            </div>
+            <div class="clear">
+            </div>
+        </div>
+        <div class="exp-in-cont" style="margin-top:10px">
+            <div class="exp-result-cont">
+                <div class="exp-result-tit bg1">
+                    计算结果
+                </div>
+                <div class="exp-result-line">
+                    <div class="exp-result-cell exp-result-cell1 bg1">回归方程（惠）</div>
+                    <div class="exp-result-cell exp-result-cell1 bg2" id="e2ans1"></div>
+                </div>
+                <div class="exp-result-line">
+                    <div class="exp-result-cell exp-result-cell1 bg1">回归方程（卧）</div>
+                    <div class="exp-result-cell exp-result-cell1 bg2" id="e2ans2"></div>
+                </div>
+                <div class="exp-result-line">
+                    <div class="exp-result-cell exp-result-cell1 bg1">回归方程（立）</div>
+                    <div class="exp-result-cell exp-result-cell1 bg2" id="e2ans3"></div>
+                </div>
+            </div>
+        </div>
+        <div class="exp-in-cont" style="margin-top:10px">
+            <div class="exp-button-cont">
+                <button class="exp-run-button bg1" id="e2btn">
+                    运行
+                </button>
+            </div>
+        </div>
+        <!--铜电阻的回归方程（2） 百分比误差
+        热敏电阻的回归方程   百分比误差-->
+    </div>
+    <!--直流电桥-->
+    <div class="exp-content" id="exp3">
+        <div class="exp-tit"><!--命名规则为e3(a~m)以列来命名,最后运行结果以行e3(n)来命名,其中e3m列要注意其中有empty没名命-->
+            多功能摆
+        </div>
+        <div class="exp-in-cont">
+            <div class="exp-row exp-row3" id="exp_dgn_row1">
+                <div class="exp-cell exp-cell1 bg1">内容</div>
+                <div class="exp-cell exp-cell5 bg1">测量数据</div>
+                <div class="exp-cell exp-cell1 bg1">平均值</div>
+                <div class="exp-cell exp-cell2 bg1">A类不确定度</div>
+                <div class="exp-cell exp-cell2 bg1">B类不确定度</div>
+                <div class="exp-cell exp-cell2 bg1">合成不确定度</div>
+            </div>
+            <div class="exp3-swiper1-div" id="exp3_swiper1_div">
+                <div class="exp3-swiper1-container swiper-container" >
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <div class="exp-cell exp-cell1 bg1">
+		            		    摆长
+							</div>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e3a1"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e3a2"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e3a3"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e3a4"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e3a5"></input>
+                            <div class="exp-cell exp-cell1 bg2" id="e3a6"></div>
+                            <div class="exp-cell exp-cell2 bg2" id="e3a7"></div>
+                            <div class="exp-cell exp-cell2 bg2" id="e3a8"></div>
+                            <div class="exp-cell exp-cell2 bg2" id="e3a9"></div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="exp-cell exp-cell1 bg1">
+					    	    直径
+						    </div>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e3b1"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e3b2"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e3b3"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e3b4"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e3b5"></input>
+                            <div class="exp-cell exp-cell1 bg2" id="e3b6"></div>
+                            <div class="exp-cell exp-cell2 bg2" id="e3b7"></div>
+                            <div class="exp-cell exp-cell2 bg2" id="e3b8"></div>
+                            <div class="exp-cell exp-cell2 bg2" id="e3b9"></div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="exp-cell exp-cell1 bg1">
+		        			    周期
+                            </div>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e3c1"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e3c2"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e3c3"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e3c4"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e3c5"></input>
+                            <div class="exp-cell exp-cell1 bg2" id="e3c6"></div>
+                            <div class="exp-cell exp-cell2 bg2" id="e3c7"></div>
+                            <div class="exp-cell exp-cell2 bg2" id="e3c8"></div>
+                            <div class="exp-cell exp-cell2 bg2" id="e3c9"></div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="exp-cell exp-cell1 bg1">
+		    	    		    g
+                            </div>
+                            <div class="exp-cell exp-cell1 bg2" id="e3d1"></div>
+                            <div class="exp-cell exp-cell1 bg2" id="e3d2"></div>
+                            <div class="exp-cell exp-cell1 bg2" id="e3d3"></div>
+                            <div class="exp-cell exp-cell1 bg2" id="e3d4"></div>
+                            <div class="exp-cell exp-cell1 bg2" id="e3d5"></div>
+                            <div class="exp-cell exp-cell1 bg2" id="e3d6"></div>
+                            <div class="exp-cell exp-cell2 bg2" id="e3d7"></div>
+                            <div class="exp-cell exp-cell2 bg2" id="e3d8" style="text-align:center">/</div>
+                            <div class="exp-cell exp-cell2 bg2" id="e3d9"></div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="exp-cell exp-cell1 bg1">
+							    总摆长
+                            </div>
+                            <div class="exp-cell exp-cell1 bg2" id="e3e1"></div>
+                            <div class="exp-cell exp-cell1 bg2" id="e3e2"></div>
+                            <div class="exp-cell exp-cell1 bg2" id="e3e3"></div>
+                            <div class="exp-cell exp-cell1 bg2" id="e3e4"></div>
+                            <div class="exp-cell exp-cell1 bg2" id="e3e5"></div>
+                            <div class="exp-cell exp-cell1 bg2" id="e3e6"></div>
+                            <div class="exp-cell exp-cell2 bg2" id="e3e7"></div>
+                            <div class="exp-cell exp-cell2 bg2" id="e3e8"></div>
+                            <div class="exp-cell exp-cell2 bg2" id="e3e9"></div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="exp-cell exp-cell1 bg1">
+					            参考数据
+                            </div>
+                            <div class="exp-cell exp-cell1 bg1">摆长平均值：</div>
+                            <div class="exp-cell exp-cell1 bg2">43.214</div>
+                            <div class="exp-cell exp-cell1 bg1">直径平均值：</div>
+                            <div class="exp-cell exp-cell1 bg2">1.99764</div>
+                            <div class="exp-cell exp-cell1 bg1">周期平均值：</div>
+                            <div class="exp-cell exp-cell1 bg2">80.032g</div>
+                            <div class="exp-cell exp-cell1 bg1">平均值：</div>
+                            <div class="exp-cell exp-cell1 bg2">9.81031864</div>
+                            <div class="exp-cell exp-cell1 bg1">总摆长平均：</div>
+                            <div class="exp-cell exp-cell1 bg2">44.21282</div>
+                        </div>
+                    </div>
+                </div>
+			    <div class="clear">
+		        </div>
+            </div>
+			<div class="clear">
+		    </div>
+        </div><!--in-cont-->
+        <div class="exp-in-cont" style="margin-top:10px">
+            <div class="exp-button-cont">
+                <button class="exp-run-button bg1" id="e3btn1">
+                    运行
+                </button>
+            </div>
+        </div>
+		<div class="exp-in-cont" style="margin-top:10px">
+			<div class="exp-row exp-row2" id="exp_dgn_row2">
+				<div class="exp-cell exp-cell2 bg1">序号</div>
+                <div class="exp-cell exp-cell1 bg1">1</div>
+                <div class="exp-cell exp-cell1 bg1">2</div>
+                <div class="exp-cell exp-cell1 bg1">3</div>
+                <div class="exp-cell exp-cell1 bg1">4</div>
+                <div class="exp-cell exp-cell1 bg1">5</div>
+				<div class="exp-cell exp-cell3 bg1">平均值</div>
+			</div>
+			<div class="exp3-swiper2-div" id="exp3_swiper2_div">
+				<div class="exp-cell exp-cell1 exp-cell-tit bg1">
+					五倍周期
+				</div>
+                <div class="exp3-swiper2-container swiper-container" >
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <div class="exp-cell exp-cell1 bg1">
+		            		    5T<span style="font-size:50%">1</span>
+							</div>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e3f1"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e3f2"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e3f3"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e3f4"></input>
+							<input class="exp-cell exp-cell1 exp-cell-input" id="e3f5"></input>
+                            <div class="exp-cell exp-cell3 bg2" id="e3f6"></div>
+						</div>
+                        <div class="swiper-slide">
+                            <div class="exp-cell exp-cell1 bg1">
+					    	    5T<span class="half">2</span>
+						    </div>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e3g1"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e3g2"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e3g3"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e3g4"></input>
+							<input class="exp-cell exp-cell1 exp-cell-input" id="e3g5"></input>
+                            <div class="exp-cell exp-cell3 bg2" id="e3g6"></div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="exp-cell exp-cell1 bg1">
+		        			    5T<span class="half">3</span>
+                            </div>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e3h1"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e3h2"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e3h3"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e3h4"></input>
+							<input class="exp-cell exp-cell1 exp-cell-input" id="e3h5"></input>
+                            <div class="exp-cell exp-cell3 bg2" id="e3h6"></div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="exp-cell exp-cell1 bg1">
+		    	    		    钢丝直径
+                            </div>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e3i1"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e3i2"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e3i3"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e3i4"></input>
+							<input class="exp-cell exp-cell1 exp-cell-input" id="e3i5"></input>
+                            <div class="exp-cell exp-cell3 bg2" id="e3i6"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+			<div class="exp3-swiper3-div" id="exp3_swiper3_div">
+				<div class="exp-cell exp-cell1 exp-cell-tit bg1">
+					球心距离
+				</div>
+                <div class="exp3-swiper3-container swiper-container" >
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <div class="exp-cell exp-cell1 bg1">
+		            		    2D<span style="font-size:50%">1</span>
+							</div>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e3j1"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e3j2"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e3j3"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e3j4"></input>
+							<input class="exp-cell exp-cell1 exp-cell-input" id="e3j5"></input>
+                            <div class="exp-cell exp-cell3 bg2" id="e3j6"></div>
+						</div>
+                        <div class="swiper-slide">
+                            <div class="exp-cell exp-cell1 bg1">
+					    	    2D<span style="font-size:50%">2</span>
+						    </div>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e3k1"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e3k2"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e3k3"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e3k4"></input>
+							<input class="exp-cell exp-cell1 exp-cell-input" id="e3k5"></input>
+                            <div class="exp-cell exp-cell3 bg2" id="e3k6"></div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="exp-cell exp-cell1 bg1">
+		        			    2D<span style="font-size:50%">3</span>
+                            </div>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e3l1"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e3l2"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e3l3"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e3l4"></input>
+							<input class="exp-cell exp-cell1 exp-cell-input" id="e3l5"></input>
+                            <div class="exp-cell exp-cell3 bg2" id="e3l6"></div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="exp-cell exp-cell1 bg1">
+		    	    		    其他
+                            </div>
+                            <div class="exp-cell exp-cell1 bg1">
+		    	    		    铜球质量
+                            </div>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e3m1"></input>
+                            <div class="exp-cell exp-cell1 empty"></div>
+                            <div class="exp-cell exp-cell1 bg1">
+		    	    		    摆长
+                            </div>
+							<input class="exp-cell exp-cell1 exp-cell-input" id="e3m2"></input>
+                            <div class="exp-cell exp-cell3 bg2" id="e3m3">/</div>
+                        </div>
+                    </div>
+                </div>
+			    <div class="clear">
+		        </div>
+            </div>
+			<div class="clear">
+		    </div>
+		</div>
+		<div class="exp-in-cont" style="margin-top:10px">
+			<div class="exp-result-cont">
+				<div class="exp-result-tit bg1">
+					计算结果
+				</div>
+				<div class="exp-result-line">
+					<div class="exp-result-cell exp-result-cell2 bg1">
+                        G<span class="half">12</span>
+					</div>
+					<div class="exp-result-cell exp-result-cell2 bg1">
+                        G<span class="half">13</span>
+					</div>
+                </div>
+                <div class="exp-result-line">
+					<div class="exp-result-cell exp-result-cell2 bg2" id="e3n1">
+					</div>
+					<div class="exp-result-cell exp-result-cell2 bg2" id="e3n2">
+					</div>
+				</div>
+                <div class="exp-result-line">
+					<div class="exp-result-cell exp-result-cell2 bg1">
+                        G<span class="half">23</span>
+					</div>
+					<div class="exp-result-cell exp-result-cell2 bg1">
+                        G平均值
+					</div>
+				</div>
+                <div class="exp-result-line">
+					<div class="exp-result-cell exp-result-cell2 bg2" id="e3n3">
+					</div>
+					<div class="exp-result-cell exp-result-cell2 bg2" id="e3n4">
+					</div>
+				</div>
+			</div>
+		</div>
+        <div class="exp-in-cont" style="margin-top:10px">
+            <div class="exp-button-cont">
+                <button class="exp-run-button bg1" id="e3btn2">
+                    运行
+                </button>
+            </div>
+        </div>
+    </div><!--exp-->
+    <!--多功能摆-->
+    <div class="exp-content" id="exp4">
+        <div class="exp-tit">
+            伏安特性
+        </div>
+        <div class="exp-in-cont">
+            <div class="exp-row exp-row2" id="exp_fatx_row1" style="width:25%">
+                <div class="exp-cell exp-cell2 bg1">内接法</div>
+                <div class="exp-cell exp-cell2 bg1">外接法</div>
+                <div class="exp-cell exp-cell1 bg1">电阻标称</div>
+                <div class="exp-cell exp-cell2 bg1">量程</div>
+                <div class="exp-cell exp-cell2 bg1">内接法</div>
+                <div class="exp-cell exp-cell2 bg1">外接法</div>
+            </div>
+            <div class="exp-row exp-row2" id="" style="width:20%">
+                <div class="exp-cell exp-cell1 bg1">V/小格</div>
+                <div class="exp-cell exp-cell1 bg1">I/小格</div>
+                <div class="exp-cell exp-cell1 bg1">V/小格</div>
+                <div class="exp-cell exp-cell1 bg1">I/小格</div>
+                <div class="exp-cell exp-cell1 bg1">100</div>
+                <div class="exp-cell exp-cell1 bg1">V</div>
+                <div class="exp-cell exp-cell1 bg1">A</div>
+                <div class="exp-cell exp-cell1 bg1">V/V</div>
+                <div class="exp-cell exp-cell1 bg1">I/mA</div>
+                <div class="exp-cell exp-cell1 bg1">V/V</div>
+                <div class="exp-cell exp-cell1 bg1">I/mA</div>
+            </div>
+            <div class="exp4-swiper1-div" id="exp4_swiper1_div" style="width:54%">
+                <div class="exp4-swiper1-container swiper-container" >
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e4a1"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e4a2"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e4a3"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e4a4"></input>
+                            <div class="exp-cell exp-cell1 bg1">Ω</div>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e4lcv1" value="2.5"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e4lca1" value="30"></input>
+                            <div class="exp-cell exp-cell1 bg2" id="e4a5"></div>
+                            <div class="exp-cell exp-cell1 bg2" id="e4a6"></div>
+                            <div class="exp-cell exp-cell1 bg2" id="e4a7"></div>
+                            <div class="exp-cell exp-cell1 bg2" id="e4a8"></div>
+                        </div>
+                        <div class="swiper-slide">
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e4b1"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e4b2"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e4b3"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e4b4"></input>
+                            <div class="exp-cell exp-cell1 empty"></div>
+                            <div class="exp-cell exp-cell1 bg1">V</div>
+                            <div class="exp-cell exp-cell1 bg1">mA</div>
+                            <div class="exp-cell exp-cell1 bg2" id="e4b5"></div>
+                            <div class="exp-cell exp-cell1 bg2" id="e4b6"></div>
+                            <div class="exp-cell exp-cell1 bg2" id="e4b7"></div>
+                            <div class="exp-cell exp-cell1 bg2" id="e4b8"></div>
+                        </div>
+                        <div class="swiper-slide">
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e4c1"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e4c2"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e4c3"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e4c4"></input>
+                            <div class="exp-cell exp-cell1 empty"></div>
+                            <div class="exp-cell exp-cell1 empty"></div>
+                            <div class="exp-cell exp-cell1 empty"></div>
+                            <div class="exp-cell exp-cell1 bg2" id="e4c5"></div>
+                            <div class="exp-cell exp-cell1 bg2" id="e4c6"></div>
+                            <div class="exp-cell exp-cell1 bg2" id="e4c7"></div>
+                            <div class="exp-cell exp-cell1 bg2" id="e4c8"></div>
+                        </div>
+                        <div class="swiper-slide">
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e4d1"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e4d2"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e4d3"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e4d4"></input>
+                            <div class="exp-cell exp-cell1 empty"></div>
+                            <div class="exp-cell exp-cell1 empty"></div>
+                            <div class="exp-cell exp-cell1 empty"></div>
+                            <div class="exp-cell exp-cell1 bg2" id="e4d5"></div>
+                            <div class="exp-cell exp-cell1 bg2" id="e4d6"></div>
+                            <div class="exp-cell exp-cell1 bg2" id="e4d7"></div>
+                            <div class="exp-cell exp-cell1 bg2" id="e4d8"></div>
+                        </div>
+                        <div class="swiper-slide">
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e4e1"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e4e2"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e4e3"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e4e4"></input>
+                            <div class="exp-cell exp-cell1 empty"></div>
+                            <div class="exp-cell exp-cell1 empty"></div>
+                            <div class="exp-cell exp-cell1 empty"></div>
+                            <div class="exp-cell exp-cell1 bg2" id="e4e5"></div>
+                            <div class="exp-cell exp-cell1 bg2" id="e4e6"></div>
+                            <div class="exp-cell exp-cell1 bg2" id="e4e7"></div>
+                            <div class="exp-cell exp-cell1 bg2" id="e4e8"></div>
+                        </div>
+                        <div class="swiper-slide">
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e4f1"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e4f2"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e4f3"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e4f4"></input>
+                            <div class="exp-cell exp-cell1 empty"></div>
+                            <div class="exp-cell exp-cell1 empty"></div>
+                            <div class="exp-cell exp-cell1 empty"></div>
+                            <div class="exp-cell exp-cell1 bg2" id="e4f5"></div>
+                            <div class="exp-cell exp-cell1 bg2" id="e4f6"></div>
+                            <div class="exp-cell exp-cell1 bg2" id="e4f7"></div>
+                            <div class="exp-cell exp-cell1 bg2" id="e4f8"></div>
+                        </div>
+                        <div class="swiper-slide">
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e4g1"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e4g2"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e4g3"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e4g4"></input>
+                            <div class="exp-cell exp-cell1 empty"></div>
+                            <div class="exp-cell exp-cell1 empty"></div>
+                            <div class="exp-cell exp-cell1 empty"></div>
+                            <div class="exp-cell exp-cell1 bg2" id="e4g5"></div>
+                            <div class="exp-cell exp-cell1 bg2" id="e4g6"></div>
+                            <div class="exp-cell exp-cell1 bg2" id="e4g7"></div>
+                            <div class="exp-cell exp-cell1 bg2" id="e4g8"></div>
+                        </div>
+                        <div class="swiper-slide">
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e4h1"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e4h2"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e4h3"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e4h4"></input>
+                            <div class="exp-cell exp-cell1 empty"></div>
+                            <div class="exp-cell exp-cell1 empty"></div>
+                            <div class="exp-cell exp-cell1 empty"></div>
+                            <div class="exp-cell exp-cell1 bg2" id="e4h5"></div>
+                            <div class="exp-cell exp-cell1 bg2" id="e4h6"></div>
+                            <div class="exp-cell exp-cell1 bg2" id="e4h7"></div>
+                            <div class="exp-cell exp-cell1 bg2" id="e4h8"></div>
+                        </div>
+                        <div class="swiper-slide">
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e4i1"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e4i2"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e4i3"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e4i4"></input>
+                            <div class="exp-cell exp-cell1 empty"></div>
+                            <div class="exp-cell exp-cell1 empty"></div>
+                            <div class="exp-cell exp-cell1 empty"></div>
+                            <div class="exp-cell exp-cell1 bg2" id="e4i5"></div>
+                            <div class="exp-cell exp-cell1 bg2" id="e4i6"></div>
+                            <div class="exp-cell exp-cell1 bg2" id="e4i7"></div>
+                            <div class="exp-cell exp-cell1 bg2" id="e4i8"></div>
+                        </div>
+                        <div class="swiper-slide">
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e4j1"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e4j2"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e4j3"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e4j4"></input>
+                            <div class="exp-cell exp-cell1 empty"></div>
+                            <div class="exp-cell exp-cell1 empty"></div>
+                            <div class="exp-cell exp-cell1 empty"></div>
+                            <div class="exp-cell exp-cell1 bg2" id="e4j5"></div>
+                            <div class="exp-cell exp-cell1 bg2" id="e4j6"></div>
+                            <div class="exp-cell exp-cell1 bg2" id="e4j7"></div>
+                            <div class="exp-cell exp-cell1 bg2" id="e4j8"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="clear">
+                </div>
+            </div>
+            <div class="clear">
+            </div>
+        </div><!--in-cont-->
+        <div class="exp-in-cont" style="margin-top:10px">
+            <div class="exp-button-cont">
+                <button class="exp-run-button bg1" id="e4btn1">
+                    运行
+                </button>
+            </div>
+        </div>
+        <div class="exp-in-cont" style="margin-top:10px">
+            <div class="exp-cell exp-cell1 exp-cell-tit bg1" >
+                二极管
+            </div>
+            <div class="exp-row exp-row1" id="exp_ejg_row1">
+                <div class="exp-cell exp-cell2 bg1">正</div>
+                <div class="exp-cell exp-cell2 bg1">反</div>
+                <div class="exp-cell exp-cell2 bg1">量程</div>
+                <div class="exp-cell exp-cell2 bg1">正</div>
+                <div class="exp-cell exp-cell2 bg1">反</div>
+            </div>
+            <div class="exp-row exp-row1" id="" style="width:20%">
+                <div class="exp-cell exp-cell1 bg1">V/小格</div>
+                <div class="exp-cell exp-cell1 bg1">I/小格</div>
+                <div class="exp-cell exp-cell1 bg1">V/小格</div>
+                <div class="exp-cell exp-cell1 bg1">I/小格</div>
+                <div class="exp-cell exp-cell1 bg1">V</div>
+                <div class="exp-cell exp-cell1 bg1">mA</div>
+                <div class="exp-cell exp-cell1 bg1">V/V</div>
+                <div class="exp-cell exp-cell1 bg1">I/mA</div>
+                <div class="exp-cell exp-cell1 bg1">V/V</div>
+                <div class="exp-cell exp-cell1 bg1">I/mA</div>
+            </div>
+            <div class="exp4-swiper2-div" id="exp4_swiper2_div" style="width:64%">
+                <div class="exp4-swiper2-container swiper-container" >
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e4k1"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e4k2"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e4k3"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e4k4"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e4lcv2" value="5"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e4lca2" value="30"></input>
+                            <div class="exp-cell exp-cell1 bg2" id="e4k5"></div>
+                            <div class="exp-cell exp-cell1 bg2" id="e4k6"></div>
+                            <div class="exp-cell exp-cell1 bg2" id="e4k7"></div>
+                            <div class="exp-cell exp-cell1 bg2" id="e4k8"></div>
+                        </div>
+                        <div class="swiper-slide">
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e4l1"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e4l2"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e4l3"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e4l4"></input>
+                            <div class="exp-cell exp-cell1 bg1">V(正向)</div>
+                            <div class="exp-cell exp-cell1 bg1">mA(正向)</div>
+                            <div class="exp-cell exp-cell1 bg2" id="e4l5"></div>
+                            <div class="exp-cell exp-cell1 bg2" id="e4l6"></div>
+                            <div class="exp-cell exp-cell1 bg2" id="e4l7"></div>
+                            <div class="exp-cell exp-cell1 bg2" id="e4l8"></div>
+                        </div>
+                        <div class="swiper-slide">
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e4m1"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e4m2"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e4m3"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e4m4"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e4lcv3"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e4lca3"></input>
+                            <div class="exp-cell exp-cell1 bg2" id="e4m5"></div>
+                            <div class="exp-cell exp-cell1 bg2" id="e4m6"></div>
+                            <div class="exp-cell exp-cell1 bg2" id="e4m7"></div>
+                            <div class="exp-cell exp-cell1 bg2" id="e4m8"></div>
+                        </div>
+                        <div class="swiper-slide">
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e4n1"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e4n2"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e4n3"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e4n4"></input>
+                            <div class="exp-cell exp-cell1 bg1">V(反向)</div>
+                            <div class="exp-cell exp-cell1 bg1">mA(反向)</div>
+                            <div class="exp-cell exp-cell1 bg2" id="e4n5"></div>
+                            <div class="exp-cell exp-cell1 bg2" id="e4n6"></div>
+                            <div class="exp-cell exp-cell1 bg2" id="e4n7"></div>
+                            <div class="exp-cell exp-cell1 bg2" id="e4n8"></div>
+                        </div>
+                        <div class="swiper-slide">
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e4o1"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e4o2"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e4o3"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e4o4"></input>
+                            <div class="exp-cell exp-cell1 empty"></div>
+                            <div class="exp-cell exp-cell1 empty"></div>
+                            <div class="exp-cell exp-cell1 bg2" id="e4o5"></div>
+                            <div class="exp-cell exp-cell1 bg2" id="e4o6"></div>
+                            <div class="exp-cell exp-cell1 bg2" id="e4o7"></div>
+                            <div class="exp-cell exp-cell1 bg2" id="e4o8"></div>
+                        </div>
+                        <div class="swiper-slide">
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e4p1"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e4p2"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e4p3"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e4p4"></input>
+                            <div class="exp-cell exp-cell1 empty"></div>
+                            <div class="exp-cell exp-cell1 empty"></div>
+                            <div class="exp-cell exp-cell1 bg2" id="e4p5"></div>
+                            <div class="exp-cell exp-cell1 bg2" id="e4p6"></div>
+                            <div class="exp-cell exp-cell1 bg2" id="e4p7"></div>
+                            <div class="exp-cell exp-cell1 bg2" id="e4p8"></div>
+                        </div>
+                        <div class="swiper-slide">
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e4q1"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e4q2"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e4q3"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e4q4"></input>
+                            <div class="exp-cell exp-cell1 empty"></div>
+                            <div class="exp-cell exp-cell1 empty"></div>
+                            <div class="exp-cell exp-cell1 bg2" id="e4q5"></div>
+                            <div class="exp-cell exp-cell1 bg2" id="e4q6"></div>
+                            <div class="exp-cell exp-cell1 bg2" id="e4q7"></div>
+                            <div class="exp-cell exp-cell1 bg2" id="e4q8"></div>
+                        </div>
+                        <div class="swiper-slide">
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e4r1"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e4r2"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e4r3"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e4r4"></input>
+                            <div class="exp-cell exp-cell1 empty"></div>
+                            <div class="exp-cell exp-cell1 empty"></div>
+                            <div class="exp-cell exp-cell1 bg2" id="e4r5"></div>
+                            <div class="exp-cell exp-cell1 bg2" id="e4r6"></div>
+                            <div class="exp-cell exp-cell1 bg2" id="e4r7"></div>
+                            <div class="exp-cell exp-cell1 bg2" id="e4r8"></div>
+                        </div>
+                        <div class="swiper-slide">
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e4s1"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e4s2"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e4s3"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e4s4"></input>
+                            <div class="exp-cell exp-cell1 empty"></div>
+                            <div class="exp-cell exp-cell1 empty"></div>
+                            <div class="exp-cell exp-cell1 bg2" id="e4s5"></div>
+                            <div class="exp-cell exp-cell1 bg2" id="e4s6"></div>
+                            <div class="exp-cell exp-cell1 bg2" id="e4s7"></div>
+                            <div class="exp-cell exp-cell1 bg2" id="e4s8"></div>
+                        </div>
+                        <div class="swiper-slide">
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e4t1"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e4t2"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e4t3"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e4t4"></input>
+                            <div class="exp-cell exp-cell1 empty"></div>
+                            <div class="exp-cell exp-cell1 empty"></div>
+                            <div class="exp-cell exp-cell1 bg2" id="e4t5"></div>
+                            <div class="exp-cell exp-cell1 bg2" id="e4t6"></div>
+                            <div class="exp-cell exp-cell1 bg2" id="e4t7"></div>
+                            <div class="exp-cell exp-cell1 bg2" id="e4t8"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="clear">
+                </div>
+            </div>
+            <div class="clear">
+            </div>
+        </div><!--in-cont-->
+        <div class="exp-in-cont" style="margin-top:10px">
+            <div class="exp-button-cont">
+                <button class="exp-run-button bg1" id="e4btn2">
+                    运行
+                </button>
+            </div>
+        </div>
+        <div class="exp-in-cont" style="margin-top:10px">
+            <div class="exp-cell exp-cell1 exp-cell-tit bg1" >
+                三极管
+            </div>
+            <div class="exp-row exp-row1" id="exp_fatx_row3" style="width:22%">
+                <div class="exp-cell exp-cell2 bg1">I<span class="half">b</span>=40μA</div>
+                <div class="exp-cell exp-cell2 bg1">I<span class="half">b</span>=60μA</div>
+                <div class="exp-cell exp-cell2 bg1">I<span class="half">b</span>=80μA</div>
+                <div class="exp-cell exp-cell6 bg1">量程</div>
+                <div class="exp-cell exp-cell2 bg1">I<span class="half">b</span>=40μA</div>
+                <div class="exp-cell exp-cell2 bg1">I<span class="half">b</span>=60μA</div>
+                <div class="exp-cell exp-cell2 bg1">I<span class="half">b</span>=80μA</div>
+            </div>
+            <div class="exp-row exp-row2" id="" style="width:24%">
+                <div class="exp-cell exp-cell1 bg1">Vcc/小格</div>
+                <div class="exp-cell exp-cell1 bg1">Ic/小格</div>
+                <div class="exp-cell exp-cell1 bg1">Vcc/小格</div>
+                <div class="exp-cell exp-cell1 bg1">Ic/小格</div>
+                <div class="exp-cell exp-cell1 bg1">Vcc/小格</div>
+                <div class="exp-cell exp-cell1 bg1">Ic/小格</div>
+                <div class="exp-cell exp-cell2 bg1">第一组</div>
+                <div class="exp-cell exp-cell2 bg1">第二组</div>
+                <div class="exp-cell exp-cell2 bg1">第三组</div>
+                <div class="exp-cell exp-cell1 bg1">Vcc/V</div>
+                <div class="exp-cell exp-cell1 bg1">Ic/mA</div>
+                <div class="exp-cell exp-cell1 bg1">Vcc/V</div>
+                <div class="exp-cell exp-cell1 bg1">Ic/mA</div>
+                <div class="exp-cell exp-cell1 bg1">Vcc/V</div>
+                <div class="exp-cell exp-cell1 bg1">Ic/mA</div>
+            </div>
+            <div class="exp4-swiper3-div" id="exp4_swiper3_div" style="width:53%">
+                <div class="exp4-swiper3-container swiper-container" >
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e4_a1"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e4_a2"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e4_a3"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e4_a4"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e4_a5"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e4_a6"></input>
+                            <div class="exp-cell exp-cell1 bg1">V</div>
+                            <div class="exp-cell exp-cell1 bg1">A</div>
+                            <div class="exp-cell exp-cell1 bg1">V</div>
+                            <div class="exp-cell exp-cell1 bg1">A</div>
+                            <div class="exp-cell exp-cell1 bg1">V</div>
+                            <div class="exp-cell exp-cell1 bg1">A</div>
+                            <div class="exp-cell exp-cell1 bg2" id="e4_a7"></div>
+                            <div class="exp-cell exp-cell1 bg2" id="e4_a8"></div>
+                            <div class="exp-cell exp-cell1 bg2" id="e4_a9"></div>
+                            <div class="exp-cell exp-cell1 bg2" id="e4_a10"></div>
+                            <div class="exp-cell exp-cell1 bg2" id="e4_a11"></div>
+                            <div class="exp-cell exp-cell1 bg2" id="e4_a12"></div>
+                        </div>
+                        <div class="swiper-slide">
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e4_b1"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e4_b2"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e4_b3"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e4_b4"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e4_b5"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e4_b6"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e4lcv4" value="5"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e4lca4" value="15"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e4lcv5" value="5"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e4lca5" value="15"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e4lcv6" value="5"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e4lca6" value="30"></input>
+                            <div class="exp-cell exp-cell1 bg2" id="e4_b7"></div>
+                            <div class="exp-cell exp-cell1 bg2" id="e4_b8"></div>
+                            <div class="exp-cell exp-cell1 bg2" id="e4_b9"></div>
+                            <div class="exp-cell exp-cell1 bg2" id="e4_b10"></div>
+                            <div class="exp-cell exp-cell1 bg2" id="e4_b11"></div>
+                            <div class="exp-cell exp-cell1 bg2" id="e4_b12"></div>
+                        </div>
+                        <div class="swiper-slide">
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e4_c1"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e4_c2"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e4_c3"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e4_c4"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e4_c5"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e4_c6"></input>
+                            <div class="exp-cell exp-cell1 bg1">V</div>
+                            <div class="exp-cell exp-cell1 bg1">mA</div>
+                            <div class="exp-cell exp-cell1 bg1">V</div>
+                            <div class="exp-cell exp-cell1 bg1">mA</div>
+                            <div class="exp-cell exp-cell1 bg1">V</div>
+                            <div class="exp-cell exp-cell1 bg1">mA</div>
+                            <div class="exp-cell exp-cell1 bg2" id="e4_c7"></div>
+                            <div class="exp-cell exp-cell1 bg2" id="e4_c8"></div>
+                            <div class="exp-cell exp-cell1 bg2" id="e4_c9"></div>
+                            <div class="exp-cell exp-cell1 bg2" id="e4_c10"></div>
+                            <div class="exp-cell exp-cell1 bg2" id="e4_c11"></div>
+                            <div class="exp-cell exp-cell1 bg2" id="e4_c12"></div>
+                        </div>
+                        <div class="swiper-slide">
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e4_d1"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e4_d2"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e4_d3"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e4_d4"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e4_d5"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e4_d6"></input>
+                            <div class="exp-cell exp-cell1 empty"></div>
+                            <div class="exp-cell exp-cell1 empty"></div>
+                            <div class="exp-cell exp-cell1 empty"></div>
+                            <div class="exp-cell exp-cell1 empty"></div>
+                            <div class="exp-cell exp-cell1 empty"></div>
+                            <div class="exp-cell exp-cell1 empty"></div>
+                            <div class="exp-cell exp-cell1 bg2" id="e4_d7"></div>
+                            <div class="exp-cell exp-cell1 bg2" id="e4_d8"></div>
+                            <div class="exp-cell exp-cell1 bg2" id="e4_d9"></div>
+                            <div class="exp-cell exp-cell1 bg2" id="e4_d10"></div>
+                            <div class="exp-cell exp-cell1 bg2" id="e4_d11"></div>
+                            <div class="exp-cell exp-cell1 bg2" id="e4_d12"></div>
+                        </div>
+                        <div class="swiper-slide">
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e4_e1"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e4_e2"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e4_e3"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e4_e4"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e4_e5"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e4_e6"></input>
+                            <div class="exp-cell exp-cell1 empty"></div>
+                            <div class="exp-cell exp-cell1 empty"></div>
+                            <div class="exp-cell exp-cell1 empty"></div>
+                            <div class="exp-cell exp-cell1 empty"></div>
+                            <div class="exp-cell exp-cell1 empty"></div>
+                            <div class="exp-cell exp-cell1 empty"></div>
+                            <div class="exp-cell exp-cell1 bg2" id="e4_e7"></div>
+                            <div class="exp-cell exp-cell1 bg2" id="e4_e8"></div>
+                            <div class="exp-cell exp-cell1 bg2" id="e4_e9"></div>
+                            <div class="exp-cell exp-cell1 bg2" id="e4_e10"></div>
+                            <div class="exp-cell exp-cell1 bg2" id="e4_e11"></div>
+                            <div class="exp-cell exp-cell1 bg2" id="e4_e12"></div>
+                        </div>
+                        <div class="swiper-slide">
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e4_f1"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e4_f2"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e4_f3"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e4_f4"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e4_f5"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e4_f6"></input>
+                            <div class="exp-cell exp-cell1 empty"></div>
+                            <div class="exp-cell exp-cell1 empty"></div>
+                            <div class="exp-cell exp-cell1 empty"></div>
+                            <div class="exp-cell exp-cell1 empty"></div>
+                            <div class="exp-cell exp-cell1 empty"></div>
+                            <div class="exp-cell exp-cell1 empty"></div>
+                            <div class="exp-cell exp-cell1 bg2" id="e4_f7"></div>
+                            <div class="exp-cell exp-cell1 bg2" id="e4_f8"></div>
+                            <div class="exp-cell exp-cell1 bg2" id="e4_f9"></div>
+                            <div class="exp-cell exp-cell1 bg2" id="e4_f10"></div>
+                            <div class="exp-cell exp-cell1 bg2" id="e4_f11"></div>
+                            <div class="exp-cell exp-cell1 bg2" id="e4_f12"></div>
+                        </div>
+                        <div class="swiper-slide">
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e4_g1"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e4_g2"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e4_g3"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e4_g4"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e4_g5"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e4_g6"></input>
+                            <div class="exp-cell exp-cell1 empty"></div>
+                            <div class="exp-cell exp-cell1 empty"></div>
+                            <div class="exp-cell exp-cell1 empty"></div>
+                            <div class="exp-cell exp-cell1 empty"></div>
+                            <div class="exp-cell exp-cell1 empty"></div>
+                            <div class="exp-cell exp-cell1 empty"></div>
+                            <div class="exp-cell exp-cell1 bg2" id="e4_g7"></div>
+                            <div class="exp-cell exp-cell1 bg2" id="e4_g8"></div>
+                            <div class="exp-cell exp-cell1 bg2" id="e4_g9"></div>
+                            <div class="exp-cell exp-cell1 bg2" id="e4_g10"></div>
+                            <div class="exp-cell exp-cell1 bg2" id="e4_g11"></div>
+                            <div class="exp-cell exp-cell1 bg2" id="e4_g12"></div>
+                        </div>
+                        <div class="swiper-slide">
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e4_h1"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e4_h2"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e4_h3"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e4_h4"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e4_h5"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e4_h6"></input>
+                            <div class="exp-cell exp-cell1 empty"></div>
+                            <div class="exp-cell exp-cell1 empty"></div>
+                            <div class="exp-cell exp-cell1 empty"></div>
+                            <div class="exp-cell exp-cell1 empty"></div>
+                            <div class="exp-cell exp-cell1 empty"></div>
+                            <div class="exp-cell exp-cell1 empty"></div>
+                            <div class="exp-cell exp-cell1 bg2" id="e4_h7"></div>
+                            <div class="exp-cell exp-cell1 bg2" id="e4_h8"></div>
+                            <div class="exp-cell exp-cell1 bg2" id="e4_h9"></div>
+                            <div class="exp-cell exp-cell1 bg2" id="e4_h10"></div>
+                            <div class="exp-cell exp-cell1 bg2" id="e4_h11"></div>
+                            <div class="exp-cell exp-cell1 bg2" id="e4_h12"></div>
+                        </div>
+                        <div class="swiper-slide">
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e4_i1"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e4_i2"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e4_i3"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e4_i4"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e4_i5"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e4_i6"></input>
+                            <div class="exp-cell exp-cell1 empty"></div>
+                            <div class="exp-cell exp-cell1 empty"></div>
+                            <div class="exp-cell exp-cell1 empty"></div>
+                            <div class="exp-cell exp-cell1 empty"></div>
+                            <div class="exp-cell exp-cell1 empty"></div>
+                            <div class="exp-cell exp-cell1 empty"></div>
+                            <div class="exp-cell exp-cell1 bg2" id="e4_i7"></div>
+                            <div class="exp-cell exp-cell1 bg2" id="e4_i8"></div>
+                            <div class="exp-cell exp-cell1 bg2" id="e4_i9"></div>
+                            <div class="exp-cell exp-cell1 bg2" id="e4_i10"></div>
+                            <div class="exp-cell exp-cell1 bg2" id="e4_i11"></div>
+                            <div class="exp-cell exp-cell1 bg2" id="e4_i12"></div>
+                        </div>
+                        <div class="swiper-slide">
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e4_j1"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e4_j2"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e4_j3"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e4_j4"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e4_j5"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e4_j6"></input>
+                            <div class="exp-cell exp-cell1 empty"></div>
+                            <div class="exp-cell exp-cell1 empty"></div>
+                            <div class="exp-cell exp-cell1 empty"></div>
+                            <div class="exp-cell exp-cell1 empty"></div>
+                            <div class="exp-cell exp-cell1 empty"></div>
+                            <div class="exp-cell exp-cell1 empty"></div>
+                            <div class="exp-cell exp-cell1 bg2" id="e4_j7"></div>
+                            <div class="exp-cell exp-cell1 bg2" id="e4_j8"></div>
+                            <div class="exp-cell exp-cell1 bg2" id="e4_j9"></div>
+                            <div class="exp-cell exp-cell1 bg2" id="e4_j10"></div>
+                            <div class="exp-cell exp-cell1 bg2" id="e4_j11"></div>
+                            <div class="exp-cell exp-cell1 bg2" id="e4_j12"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="clear">
+                </div>
+            </div>
+            <div class="clear">
+            </div>
+        </div><!--in-cont-->
+        <div class="exp-in-cont" style="margin-top:10px">
+            <div class="exp-button-cont">
+                <button class="exp-run-button bg1" id="e4btn3">
+                    运行
+                </button>
+            </div>
+        </div>
+        <!--被测电阻阻值和不确定度（两种方法）
+        放大系数（excel）-->
+    </div>
+    <!--伏安特性-->
+    <div class="exp-content" id="exp5">
+        <div class="exp-tit">
+            霍尔效应
+        </div>
+        <div class="exp-in-cont" style="margin-top:5px">
+            <div class="exp-cell exp-cell1 bg1 full">
+                实验常量
+            </div>
+            <div class="exp-result-line" style="margin-bottom:2px">
+                <div class="exp-result-cell exp-result-cell2 bg1" style="margin-left:0">
+                    k<span class="half">B</span>
+                </div>
+                <input class="exp-result-cell exp-result-cell2 exp-cell-input" id="e5kb">
+                </input>
+            </div>
+            <div class="exp-cell exp-cell1 bg2 full">
+                d=(0.500±0.004)mm
+            </div>
+            <div class="exp-cell exp-cell1 bg2 full">
+                b=(0.40±0.02)cm
+            </div>
+            <div class="exp-cell exp-cell1 bg2 full">
+                l=(0.30±0.02)cm
+            </div>
+        </div>
+        <div class="exp-cell exp-cell1 bg1 full">
+            实验一： V<span class="half">h</span>随I<span class="half">s</span>变化 I<span class="half">M</span>=(0.450
+            ±0.001)A
+        </div>
+        <div class="exp-in-cont">
+            <div class="exp-row exp-row2" id="exp_hexy_row1">
+                <div class="exp-cell exp-cell2 bg1">I<span class="half">s</span>(mA)</div>
+                <div class="exp-cell exp-cell1 bg1">1.00</div>
+                <div class="exp-cell exp-cell1 bg1">1.50</div>
+                <div class="exp-cell exp-cell1 bg1">2.00</div>
+                <div class="exp-cell exp-cell1 bg1">2.50</div>
+                <div class="exp-cell exp-cell1 bg1">3.00</div>
+                <div class="exp-cell exp-cell1 bg1">3.50</div>
+                <div class="exp-cell exp-cell1 bg1">4.00</div>
+                <div class="exp-cell exp-cell1 bg1">4.50</div>
+            </div>
+            <div class="exp5-swiper1-div" id="exp5_swiper1_div">
+                <div class="exp5-swiper1-container swiper-container" >
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <div class="exp-cell exp-cell1 bg1">V<span class="half">1</span>/mV</div>
+                            <div class="exp-cell exp-cell1 bg1">+I<span class="half">s</span> +B</div>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e5a1"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e5a2"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e5a3"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e5a4"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e5a5"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e5a6"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e5a7"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e5a8"></input>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="exp-cell exp-cell1 bg1">V<span class="half">2</span>/mV</div>
+                            <div class="exp-cell exp-cell1 bg1">+I<span class="half">s</span> -B</div>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e5b1"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e5b2"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e5b3"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e5b4"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e5b5"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e5b6"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e5b7"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e5b8"></input>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="exp-cell exp-cell1 bg1">V<span class="half">3</span>/mV</div>
+                            <div class="exp-cell exp-cell1 bg1">-I<span class="half">s</span> -B</div>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e5c1"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e5c2"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e5c3"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e5c4"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e5c5"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e5c6"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e5c7"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e5c8"></input>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="exp-cell exp-cell1 bg1">V<span class="half">4</span>/mV</div>
+                            <div class="exp-cell exp-cell1 bg1">-I<span class="half">s</span> +B</div>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e5d1"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e5d2"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e5d3"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e5d4"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e5d5"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e5d6"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e5d7"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e5d8"></input>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="exp-cell exp-cell2 bg1">V<span class="half">H</span>平均</div>
+                            <div class="exp-cell exp-cell1 bg2" id="e5e1"></div>
+                            <div class="exp-cell exp-cell1 bg2" id="e5e2"></div>
+                            <div class="exp-cell exp-cell1 bg2" id="e5e3"></div>
+                            <div class="exp-cell exp-cell1 bg2" id="e5e4"></div>
+                            <div class="exp-cell exp-cell1 bg2" id="e5e5"></div>
+                            <div class="exp-cell exp-cell1 bg2" id="e5e6"></div>
+                            <div class="exp-cell exp-cell1 bg2" id="e5e7"></div>
+                            <div class="exp-cell exp-cell1 bg2" id="e5e8"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="clear">
+                </div>
+            </div>
+            <div class="clear">
+            </div>
+        </div>
+        <div class="exp-in-cont" style="margin-top:10px">
+            <div class="exp-result-cont">
+                <div class="exp-result-tit bg1">
+                    计算结果
+                </div>
+                <div class="exp-result-line">
+                    <div class="exp-result-cell exp-result-cell3 bg1">斜率</div>
+                    <div class="exp-result-cell exp-result-cell3 bg1">R<span class="half">H</span>(x10^3)</div>
+                    <div class="exp-result-cell exp-result-cell3 bg1">n(x10^14)</div>
+                </div>
+                <div class="exp-result-line">
+                    <div class="exp-result-cell exp-result-cell3 bg2" id="e5ans1"></div>
+                    <div class="exp-result-cell exp-result-cell3 bg2" id="e5ans2"></div>
+                    <div class="exp-result-cell exp-result-cell3 bg2" id="e5ans3"></div>
+                </div>
+            </div>
+        </div>
+        <div class="exp-in-cont" style="margin-top:10px">
+            <div class="exp-button-cont">
+                <button class="exp-run-button bg1" id="e5btn1">
+                    运行
+                </button>
+            </div>
+        </div>
+        <div class="exp-cell exp-cell1 bg1 full" style="margin-top:5px">
+            实验二： V<span class="half">h</span>随I<span class="half">m</span>变化 I<span class="half">s</span>=(4.50
+            ±0.01)mA
+        </div>
+        <div class="exp-in-cont">
+            <div class="exp-row exp-row2" id="exp_hexy_row2">
+                <div class="exp-cell exp-cell2 bg1">I<span class="half">s</span>(A)</div>
+                <div class="exp-cell exp-cell1 bg1">0.100</div>
+                <div class="exp-cell exp-cell1 bg1">0.150</div>
+                <div class="exp-cell exp-cell1 bg1">0.200</div>
+                <div class="exp-cell exp-cell1 bg1">0.250</div>
+                <div class="exp-cell exp-cell1 bg1">0.300</div>
+                <div class="exp-cell exp-cell1 bg1">0.350</div>
+                <div class="exp-cell exp-cell1 bg1">0.400</div>
+                <div class="exp-cell exp-cell1 bg1">0.450</div>
+            </div>
+            <div class="exp5-swiper2-div" id="exp5_swiper2_div">
+                <div class="exp5-swiper2-container swiper-container" >
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <div class="exp-cell exp-cell1 bg1">V<span class="half">1</span>/mV</div>
+                            <div class="exp-cell exp-cell1 bg1">+I<span class="half">s</span> +B</div>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e5f1"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e5f2"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e5f3"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e5f4"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e5f5"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e5f6"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e5f7"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e5f8"></input>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="exp-cell exp-cell1 bg1">V<span class="half">2</span>/mV</div>
+                            <div class="exp-cell exp-cell1 bg1">+I<span class="half">s</span> -B</div>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e5g1"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e5g2"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e5g3"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e5g4"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e5g5"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e5g6"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e5g7"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e5g8"></input>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="exp-cell exp-cell1 bg1">V<span class="half">3</span>/mV</div>
+                            <div class="exp-cell exp-cell1 bg1">-I<span class="half">s</span> -B</div>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e5h1"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e5h2"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e5h3"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e5h4"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e5h5"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e5h6"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e5h7"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e5h8"></input>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="exp-cell exp-cell1 bg1">V<span class="half">4</span>/mV</div>
+                            <div class="exp-cell exp-cell1 bg1">-I<span class="half">s</span> +B</div>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e5i1"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e5i2"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e5i3"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e5i4"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e5i5"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e5i6"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e5i7"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e5i8"></input>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="exp-cell exp-cell2 bg1">V<span class="half">H平均</span></div>
+                            <div class="exp-cell exp-cell1 bg2" id="e5j1"></div>
+                            <div class="exp-cell exp-cell1 bg2" id="e5j2"></div>
+                            <div class="exp-cell exp-cell1 bg2" id="e5j3"></div>
+                            <div class="exp-cell exp-cell1 bg2" id="e5j4"></div>
+                            <div class="exp-cell exp-cell1 bg2" id="e5j5"></div>
+                            <div class="exp-cell exp-cell1 bg2" id="e5j6"></div>
+                            <div class="exp-cell exp-cell1 bg2" id="e5j7"></div>
+                            <div class="exp-cell exp-cell1 bg2" id="e5j8"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="clear">
+                </div>
+            </div>
+            <div class="clear">
+            </div>
+        </div>
+        <div class="exp-in-cont" style="margin-top:10px">
+            <div class="exp-result-cont">
+                <div class="exp-result-tit bg1">
+                    计算结果
+                </div>
+                <div class="exp-result-line">
+                    <div class="exp-result-cell exp-result-cell3 bg1">斜率</div>
+                    <div class="exp-result-cell exp-result-cell3 bg1">R<span class="half">H</span></div>
+                    <div class="exp-result-cell exp-result-cell3 bg1">n(x10^14)</div>
+                </div>
+                <div class="exp-result-line">
+                    <div class="exp-result-cell exp-result-cell3 bg2" id="e5ans7"></div>
+                    <div class="exp-result-cell exp-result-cell3 bg2" id="e5ans8"></div>
+                    <div class="exp-result-cell exp-result-cell3 bg2" id="e5ans9"></div>
+                </div>
+            </div>
+        </div>
+        <div class="exp-in-cont" style="margin-top:10px">
+            <div class="exp-button-cont">
+                <button class="exp-run-button bg1" id="e5btn2">
+                    运行
+                </button>
+            </div>
+        </div>
+        <div class="exp-cell exp-cell1 bg1 full" style="margin-top:5px">
+            零磁场测 V<span class="half">AC</span>
+        </div>
+        <div class="exp-in-cont">
+            <div class="exp-row exp-row5">
+                <div class="exp-cell exp-cell1 bg1">I<span class="half">s</span>/mA</div>
+                <div class="exp-cell exp-cell1 bg2">0.10</div>
+                <div class="exp-cell exp-cell1 bg2">0.20</div>
+                <div class="exp-cell exp-cell1 bg2">0.30</div>
+                <div class="exp-cell exp-cell1 bg2">0.40</div>
+                <div class="exp-cell exp-cell1 bg2">0.50</div>
+                <div class="exp-cell exp-cell1 bg2">0.60</div>
+                <div class="exp-cell exp-cell1 bg2">0.70</div>
+                <div class="exp-cell exp-cell1 bg2">0.80</div>
+                <div class="exp-cell exp-cell1 bg2">0.90</div>
+                <div class="exp-cell exp-cell1 bg2">1.00</div>
+                <div class="exp-result-line" style="margin-bottom:2px">
+                    <div class="exp-result-cell exp-result-cell2 bg1" style="margin-left:0">
+                        RH</span>
+                    </div>
+                    <input class="exp-result-cell exp-result-cell2 exp-cell-input" id="e5rh">
+                    </input>
+                </div>
+            </div>
+            <div class="exp-row exp-row5">
+                <div class="exp-cell exp-cell1 bg1">V<span class="half">AC</span>/mV</div>
+                <input class="exp-cell exp-cell1 exp-cell-input" id="e5k1"></input>
+                <input class="exp-cell exp-cell1 exp-cell-input" id="e5k2"></input>
+                <input class="exp-cell exp-cell1 exp-cell-input" id="e5k3"></input>
+                <input class="exp-cell exp-cell1 exp-cell-input" id="e5k4"></input>
+                <input class="exp-cell exp-cell1 exp-cell-input" id="e5k5"></input>
+                <input class="exp-cell exp-cell1 exp-cell-input" id="e5k6"></input>
+                <input class="exp-cell exp-cell1 exp-cell-input" id="e5k7"></input>
+                <input class="exp-cell exp-cell1 exp-cell-input" id="e5k8"></input>
+                <input class="exp-cell exp-cell1 exp-cell-input" id="e5k9"></input>
+                <input class="exp-cell exp-cell1 exp-cell-input" id="e5k10"></input>
+            </div>
+            <div class="clear">
+            </div>
+        </div>
+        <div class="exp-in-cont" style="margin-top:10px">
+            <div class="exp-result-cont">
+                <div class="exp-result-tit bg1">
+                    计算结果
+                </div>
+                <div class="exp-result-line">
+                    <div class="exp-result-cell exp-result-cell3 bg1">斜率</div>
+                    <div class="exp-result-cell exp-result-cell3 bg1">δ</div>
+                    <div class="exp-result-cell exp-result-cell3 bg1">μ</div>
+                </div>
+                <div class="exp-result-line">
+                    <div class="exp-result-cell exp-result-cell3 bg2" id="e5ans12"></div>
+                    <div class="exp-result-cell exp-result-cell3 bg2" id="e5ans13"></div>
+                    <div class="exp-result-cell exp-result-cell3 bg2" id="e5ans16"></div>
+                </div>
+            </div>
+        </div>
+        <div class="exp-in-cont" style="margin-top:10px">
+            <div class="exp-button-cont">
+                <button class="exp-run-button bg1" id="e5btn3">
+                    运行
+                </button>
+            </div>
+        </div>
+        <!--1.
+        vh和is的线性回归方程
+        vh的不确定度
+        2.
+        vh和im的线性回归
+        vh的不确定度
+        霍尔系数rh
+        载流子浓度n
+        电导率6
+        迁移率u
+            不确定度*4
+        -->
+
+    </div>
+    <!--霍尔效应-->
+    <div class="exp-content" id="exp6">
+        <div class="exp-tit">
+            密立根油滴
+        </div>
+        <div class="exp-in-cont">
+            <div class="exp-row exp-row1" id="exp_mlgyd_row">
+                <div class="exp-cell exp-cell1 bg1">编号</div>
+                <div class="exp-cell exp-cell1 bg1">1</div>
+                <div class="exp-cell exp-cell1 bg1">2</div>
+                <div class="exp-cell exp-cell1 bg1">3</div>
+                <div class="exp-cell exp-cell1 bg1">4</div>
+                <div class="exp-cell exp-cell1 bg1">5</div>
+                <div class="exp-cell exp-cell1 bg1">6</div>
+                <div class="exp-cell exp-cell1 bg1">7</div>
+                <div class="exp-cell exp-cell1 bg1">8</div>
+                <div class="exp-cell exp-cell1 bg1">9</div>
+                <div class="exp-cell exp-cell1 bg1">10</div>
+            </div>
+            <div class="exp6-swiper1-div" id="exp6_swiper1_div">
+                <div class="exp6-swiper1-container swiper-container" >
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <div class="exp-cell exp-cell1 bg1">电压(V)</div>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e6a1"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e6a2"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e6a3"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e6a4"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e6a5"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e6a6"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e6a7"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e6a8"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e6a9"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e6a10"></input>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="exp-cell exp-cell1 bg1">t1</div>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e6b1"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e6b2"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e6b3"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e6b4"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e6b5"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e6b6"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e6b7"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e6b8"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e6b9"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e6b10"></input>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="exp-cell exp-cell1 bg1">t2</div>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e6c1"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e6c2"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e6c3"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e6c4"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e6c5"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e6c6"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e6c7"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e6c8"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e6c9"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e6c10"></input>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="exp-cell exp-cell1 bg1">t3</div>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e6d1"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e6d2"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e6d3"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e6d4"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e6d5"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e6d6"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e6d7"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e6d8"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e6d9"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e6d10"></input>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="exp-cell exp-cell1 bg1">t4</div>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e6e1"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e6e2"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e6e3"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e6e4"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e6e5"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e6e6"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e6e7"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e6e8"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e6e9"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e6e10"></input>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="exp-cell exp-cell1 bg1">t5</div>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e6f1"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e6f2"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e6f3"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e6f4"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e6f5"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e6f6"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e6f7"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e6f8"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e6f9"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e6f10"></input>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="exp-cell exp-cell1 bg1">t<span class="half">平均</span></div>
+                            <div class="exp-cell exp-cell1 bg2" id="e6g1"></div>
+                            <div class="exp-cell exp-cell1 bg2" id="e6g2"></div>
+                            <div class="exp-cell exp-cell1 bg2" id="e6g3"></div>
+                            <div class="exp-cell exp-cell1 bg2" id="e6g4"></div>
+                            <div class="exp-cell exp-cell1 bg2" id="e6g5"></div>
+                            <div class="exp-cell exp-cell1 bg2" id="e6g6"></div>
+                            <div class="exp-cell exp-cell1 bg2" id="e6g7"></div>
+                            <div class="exp-cell exp-cell1 bg2" id="e6g8"></div>
+                            <div class="exp-cell exp-cell1 bg2" id="e6g9"></div>
+                            <div class="exp-cell exp-cell1 bg2" id="e6g10"></div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="exp-cell exp-cell1 bg1">q(10^-15)</div>
+                            <div class="exp-cell exp-cell1 bg2" id="e6h1"></div>
+                            <div class="exp-cell exp-cell1 bg2" id="e6h2"></div>
+                            <div class="exp-cell exp-cell1 bg2" id="e6h3"></div>
+                            <div class="exp-cell exp-cell1 bg2" id="e6h4"></div>
+                            <div class="exp-cell exp-cell1 bg2" id="e6h5"></div>
+                            <div class="exp-cell exp-cell1 bg2" id="e6h6"></div>
+                            <div class="exp-cell exp-cell1 bg2" id="e6h7"></div>
+                            <div class="exp-cell exp-cell1 bg2" id="e6h8"></div>
+                            <div class="exp-cell exp-cell1 bg2" id="e6h9"></div>
+                            <div class="exp-cell exp-cell1 bg2" id="e6h10"></div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="exp-cell exp-cell1 bg1">n</div>
+                            <div class="exp-cell exp-cell1 bg2" id="e6i1"></div>
+                            <div class="exp-cell exp-cell1 bg2" id="e6i2"></div>
+                            <div class="exp-cell exp-cell1 bg2" id="e6i3"></div>
+                            <div class="exp-cell exp-cell1 bg2" id="e6i4"></div>
+                            <div class="exp-cell exp-cell1 bg2" id="e6i5"></div>
+                            <div class="exp-cell exp-cell1 bg2" id="e6i6"></div>
+                            <div class="exp-cell exp-cell1 bg2" id="e6i7"></div>
+                            <div class="exp-cell exp-cell1 bg2" id="e6i8"></div>
+                            <div class="exp-cell exp-cell1 bg2" id="e6i9"></div>
+                            <div class="exp-cell exp-cell1 bg2" id="e6i10"></div>
+                        </div>
+                        <div class="clear">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="clear">
+            </div>
+        </div>
+        <div class="exp-in-cont">
+            <div class="exp-result-cont">
+                <div class="exp-result-tit bg1">
+                    计算结果
+                </div>
+                <div class="exp-result-line">
+                    <div class="exp-result-cell exp-result-cell1 bg1">e<span class="half">测</span></div>
+                </div>
+                <div class="exp-result-line">
+                    <div class="exp-result-cell exp-result-cell1 bg2" id="e6ans"></div>
+                </div>
+
+                <div class="clear">
+                </div>
+            </div>
+        </div>
+        <!--斜率
+        相对误差-->
+        <div class="exp-in-cont" style="margin-top:10px">
+            <div class="exp-button-cont">
+                <button class="exp-run-button bg1" id="e6btn">
+                    运行
+                </button>
+            </div>
+        </div>
+    </div>
+    <!--密里根油滴-->
+    <div class="exp-content" id="exp7">
+        <div class="exp-tit">
+            声速测量
+        </div>
+        <div class="exp-cell exp-cell1 bg1 full">
+            1.测谐振频率
+        </div>
+        <div class="exp-in-cont">
+            <div class="exp-row exp-row2" id="exp_sscl_row1">
+                <div class="exp-cell exp-cell1 bg1">物理量</div>
+                <div class="exp-cell exp-cell1 bg1">f<span class="half">空气</span></div>
+                <div class="exp-cell exp-cell1 bg1">f<span class="half">水</span></div>
+            </div>
+            <div class="exp7-swiper1-div" id="exp7_swiper1_div">
+                <div class="exp7-swiper1-container swiper-container" >
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <div class="exp-cell exp-cell1 bg1">1</div>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e7a1"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e7a2"></input>
+                            </div>
+                        <div class="swiper-slide">
+                            <div class="exp-cell exp-cell1 bg1">2</div>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e7b1"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e7b2"></input>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="exp-cell exp-cell1 bg1">3</div>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e7c1"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e7c2"></input>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="exp-cell exp-cell1 bg1">4</div>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e7d1"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e7d2"></input>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="exp-cell exp-cell1 bg1">5</div>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e7e1"></input>
+                            <input class="exp-cell exp-cell1 exp-cell-input" id="e7e2"></input>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="exp-cell exp-cell1 bg1">平均</div>
+                            <div class="exp-cell exp-cell1 bg2" id="e7f1"></div>
+                            <div class="exp-cell exp-cell1 bg2" id="e7f2"></div>
+                        </div>
+                        <div class="clear">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="clear">
+            </div>
+        </div>
+        <div class="exp-cell exp-cell1 bg1 full">
+            2.共振法.相位法
+        </div>
+        <div class="exp-in-cont">
+            <div class="exp-row exp-row3" style="width:44%" id="exp_sscl_row2">
+              <div class="exp-cell exp-cell1 bg1">测量次数</div>
+              <div class="exp-cell exp-cell1 bg1">空气中共振法(mm)</div>
+              <div class="exp-cell exp-cell1 bg1">水中相位法(mm)</div>
+            </div>
+            <div class="exp7-swiper2-div" id="exp7_swiper2_div" style="width:55%">
+                <div class="exp7-swiper2-container swiper-container" >
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                          <div class="exp-cell exp-cell1 bg1">1</div>
+                          <input class="exp-cell exp-cell1 exp-cell-input" id="e7_a1"></input>
+                          <input class="exp-cell exp-cell1 exp-cell-input" id="e7_a2"></input>
+                        </div>
+                        <div class="swiper-slide">
+                          <div class="exp-cell exp-cell1 bg1">2</div>
+                          <input class="exp-cell exp-cell1 exp-cell-input" id="e7_b1"></input>
+                          <input class="exp-cell exp-cell1 exp-cell-input" id="e7_b2"></input>
+                        </div>
+                        <div class="swiper-slide">
+                          <div class="exp-cell exp-cell1 bg1">3</div>
+                          <input class="exp-cell exp-cell1 exp-cell-input" id="e7_c1"></input>
+                          <input class="exp-cell exp-cell1 exp-cell-input" id="e7_c2"></input>
+                        </div>
+                        <div class="swiper-slide">
+                          <div class="exp-cell exp-cell1 bg1">4</div>
+                          <input class="exp-cell exp-cell1 exp-cell-input" id="e7_d1"></input>
+                          <input class="exp-cell exp-cell1 exp-cell-input" id="e7_d2"></input>
+                        </div>
+                        <div class="swiper-slide">
+                          <div class="exp-cell exp-cell1 bg1">5</div>
+                          <input class="exp-cell exp-cell1 exp-cell-input" id="e7_e1"></input>
+                          <input class="exp-cell exp-cell1 exp-cell-input" id="e7_e2"></input>
+                        </div>
+                        <div class="swiper-slide">
+                          <div class="exp-cell exp-cell1 bg1">6</div>
+                          <input class="exp-cell exp-cell1 exp-cell-input" id="e7_f1"></input>
+                          <input class="exp-cell exp-cell1 exp-cell-input" id="e7_f2"></input>
+                        </div>
+                        <div class="swiper-slide">
+                          <div class="exp-cell exp-cell1 bg1">7</div>
+                          <input class="exp-cell exp-cell1 exp-cell-input" id="e7_g1"></input>
+                          <input class="exp-cell exp-cell1 exp-cell-input" id="e7_g2"></input>
+                        </div>
+                        <div class="swiper-slide">
+                          <div class="exp-cell exp-cell1 bg1">8</div>
+                          <input class="exp-cell exp-cell1 exp-cell-input" id="e7_h1"></input>
+                          <input class="exp-cell exp-cell1 exp-cell-input" id="e7_h2"></input>
+                        </div>
+                        <div class="swiper-slide">
+                        <div class="exp-cell exp-cell1 bg1">9</div>
+                          <input class="exp-cell exp-cell1 exp-cell-input" id="e7_i1"></input>
+                          <input class="exp-cell exp-cell1 exp-cell-input" id="e7_i2"></input>
+                        </div>
+                        <div class="swiper-slide">
+                          <div class="exp-cell exp-cell1 bg1">10</div>
+                          <input class="exp-cell exp-cell1 exp-cell-input" id="e7_j1"></input>
+                          <input class="exp-cell exp-cell1 exp-cell-input" id="e7_j2"></input>
+                        </div>
+                        <div class="swiper-slide">
+                          <div class="exp-cell exp-cell1 bg1">11</div>
+                          <input class="exp-cell exp-cell1 exp-cell-input" id="e7_k1"></input>
+                          <input class="exp-cell exp-cell1 exp-cell-input" id="e7_k2"></input>
+                        </div>
+                        <div class="swiper-slide">
+                          <div class="exp-cell exp-cell1 bg1">12</div>
+                          <input class="exp-cell exp-cell1 exp-cell-input" id="e7_l1"></input>
+                          <input class="exp-cell exp-cell1 exp-cell-input" id="e7_l2"></input>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="clear">
+                  </div>
+        </div>
+        <div class="exp-cell exp-cell1 bg1 full">
+            信号发生器频率：
+        </div>
+        <div class="exp-in-cont">
+            <div class="exp-row exp-row4" >
+              <div class="exp-cell exp-cell1 bg1">f<span class="half">空气</span> Hz</div>
+              <div class="exp-cell exp-cell1 bg2" id="e7_m1"></div>
+            </div>
+            <div class="exp-row exp-row4" >
+              <div class="exp-cell exp-cell1 bg1">f<span class="half">水</span> Hz</div>
+              <div class="exp-cell exp-cell1 bg2" id="e7_m2"></div>
+            </div>
+            <div class="exp-row exp-row4" >
+              <div class="exp-cell exp-cell1 bg1" >室温 t℃</div>
+              <input class="exp-cell exp-cell1 exp-cell-input" id="e7_m3" ></input>
+            </div>
+            <div class="clear">
+            </div>
+          </div>
+        <div class="exp-in-cont">
+          <div class="exp-row exp-row1" style="width:20%">
+            <div class="exp-cell exp-cell1 bg1">逐差法</div>
+            <div class="exp-cell exp-cell1 bg1">空气</div>
+            <div class="exp-cell exp-cell1 bg1">水</div>
+          </div>
+          <div class="exp7-swiper4-div" id="exp4_swiper1_div" style="width:79%">
+            <div class="exp7-swiper4-container swiper-container" >
+                <div class="swiper-wrapper">
+                  <div class="swiper-slide">
+                      <div class="exp-cell exp-cell1 bg1">Δl<span class="half">1</span></div>
+                      <div class="exp-cell exp-cell1 bg2" id="e7__a1"></div>
+                      <div class="exp-cell exp-cell1 bg2" id="e7__a2"></div>
+                      </div>
+                  <div class="swiper-slide">
+                      <div class="exp-cell exp-cell1 bg1">Δl<span class="half">2</span></div>
+                      <div class="exp-cell exp-cell1 bg2" id="e7__b1"></div>
+                      <div class="exp-cell exp-cell1 bg2" id="e7__b2"></div>
+                      </div>
+                  <div class="swiper-slide">
+                      <div class="exp-cell exp-cell1 bg1">Δl<span class="half">3</span></div>
+                      <div class="exp-cell exp-cell1 bg2" id="e7__c1"></div>
+                      <div class="exp-cell exp-cell1 bg2" id="e7__c2"></div>
+                      </div>
+                  <div class="swiper-slide">
+                      <div class="exp-cell exp-cell1 bg1">Δl<span class="half">4</span></div>
+                      <div class="exp-cell exp-cell1 bg2" id="e7__d1"></div>
+                      <div class="exp-cell exp-cell1 bg2" id="e7__d2"></div>
+                      </div>
+                  <div class="swiper-slide">
+                      <div class="exp-cell exp-cell1 bg1">Δl<span class="half">5</span></div>
+                      <div class="exp-cell exp-cell1 bg2" id="e7__e1"></div>
+                      <div class="exp-cell exp-cell1 bg2" id="e7__e2"></div>
+                      </div>
+                  <div class="swiper-slide">
+                      <div class="exp-cell exp-cell1 bg1">Δl<span class="half">6</span></div>
+                      <div class="exp-cell exp-cell1 bg2" id="e7__f1"></div>
+                      <div class="exp-cell exp-cell1 bg2" id="e7__f2"></div>
+                      </div>
+                  <div class="swiper-slide">
+                    <div class="exp-cell exp-cell1 bg1">Δl</div>
+                    <div class="exp-cell exp-cell1 bg2" id="e7__g1"></div>
+                    <div class="exp-cell exp-cell1 bg2" id="e7__g2"></div>
+                  </div>
+                 </div>
+                <div class="clear">
+                </div>
+            </div>
+          </div>
+          <div class="clear">
+          </div>
+        </div>
+        <div class="exp-in-cont" style="margin-top:10px">
+            <div class="exp-result-cont">
+                <div class="exp-result-tit bg1">
+                    计算结果
+                </div>
+                <div class="exp-result-line">
+                    <div class="exp-result-cell exp-result-cell3 bg1">V<span class="half">空</span></div>
+                    <div class="exp-result-cell exp-result-cell3 bg1">V<span class="half">空(理)</span></div>
+                    <div class="exp-result-cell exp-result-cell3 bg1">相对误差</div>
+                </div>
+                <div class="exp-result-line">
+                    <div class="exp-result-cell exp-result-cell3 bg2" id="e7ans1"></div>
+                    <div class="exp-result-cell exp-result-cell3 bg2" id="e7ans2"></div>
+                    <div class="exp-result-cell exp-result-cell3 bg2" id="e7ans3"></div>
+                </div>
+                <div class="exp-result-line">
+                    <div class="exp-result-cell exp-result-cell2 bg1">V<span class="half">水</span></div>
+                    <div class="exp-result-cell exp-result-cell2 bg1">U<span class="half">δl</span></div>
+                </div>
+                <div class="exp-result-line">
+                    <div class="exp-result-cell exp-result-cell2 bg2" id="e7ans4"></div>
+                    <div class="exp-result-cell exp-result-cell2 bg2" id="e7ans5"></div>
+                </div>
+                <div class="exp-result-line">
+                    <div class="exp-result-cell exp-result-cell2 bg1">U<span class="half">f水</span></div>
+                    <div class="exp-result-cell exp-result-cell2 bg1">U<span class="half">V水</span></div>
+                </div>
+                <div class="exp-result-line">
+                    <div class="exp-result-cell exp-result-cell2 bg2" id="e7ans6"></div>
+                    <div class="exp-result-cell exp-result-cell2 bg2" id="e7ans7"></div>
+                </div>
+            </div>
+        </div>
+        <div class="exp-in-cont" style="margin-top:10px">
+            <div class="exp-button-cont">
+                <button class="exp-run-button bg1" id="e7btn">
+                    运行
+                </button>
+            </div>
+        </div>
+
+
+        <!--deta l 的平均值（两个方法）
+        实际声速（两个方法）
+        相对误差（两个方法）-->
+    </div>
+    <!--声速-->
+    <div class="exp-content" id="exp8" style="border:none;color:#000">
+        <div class="exp-tit">
+                数学与统计学院科协微信部后台组
+        </div>
+        <div class="exp-cell exp-cell1 bg1">
+            参与制作人员
+        </div>
+        <div class="exp-cell exp-cell1 bg2">
+            黄琛 徐皓辰 余锦晨 岳泽龙 郑钦城
+        </div>
+        <div class="exp-cell exp-cell1 bg1">
+            如有bug或疑问请联系
+        </div>
+        <div class="exp-cell exp-cell1 bg2">
+            QQ:1247470246
+        </div>
+
+    </div>
+</div>
+    <div id="alert">
+        <div class="exp-tit" style="padding-left:15px;">
+            温馨提示
+        </div>
+        <div id="content">
+            该数据处理系统仅用于方便大家计算，大家一定要自己把每个计算过程都弄懂否则考试可能会炸噢！<br><br>关注HustMaths学术科创微信公众号有更多惊喜
+        </div>
+    </div>
+    <script src="js/idangerous.swiper.min.js"></script>
+    <script src="js/indexload.js"></script>
+    <script src="js/jquery-1.10.1.min.js"></script>
+     <script src="js/index1.js"></script>
+     <script src="js/main.js"></script>
+</body>
+</html>
